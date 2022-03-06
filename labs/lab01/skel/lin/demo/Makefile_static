@@ -1,0 +1,12 @@
+CC = gcc
+
+all: main_static
+
+main_static: main.o libprint.a
+	$(CC) $^ -o $@
+
+libprint.a: print_upper.o print_lower.o
+	ar -rc $@ $^
+
+clean:
+	rm -f main_static *.a *.o

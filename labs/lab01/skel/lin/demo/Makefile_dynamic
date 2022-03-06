@@ -1,0 +1,14 @@
+CC = gcc
+CFLAGS = -fpic
+LDFLAGS = -L. -lprint
+
+all: main_dynamic
+
+main_dynamic: main.o libprint.so
+	$(CC) $< -o $@ $(LDFLAGS)
+
+libprint.so: print_upper.o print_lower.o
+	$(CC) -shared $^ -o $@
+
+clean:
+	rm -f main_dynamic *.so *.o

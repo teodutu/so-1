@@ -1,0 +1,16 @@
+CC = cl
+CFLAGS = /nologo
+LDFLAGS = /nologo
+LINK = link
+LINK_LIB = lib
+
+all: main_static.exe
+
+main_static.exe: main.obj print.lib
+	$(LINK) $(LDFLAGS) $** /out:$@
+
+print.lib: print_upper.obj print_lower.obj
+	$(LINK_LIB) $(LDFLAGS) $** /out:$@
+
+clean:
+	del /F /Q *.obj *.exe *.dll *.exp *.lib

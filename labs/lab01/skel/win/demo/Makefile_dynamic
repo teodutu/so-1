@@ -1,0 +1,15 @@
+CC = cl
+CFLAGS = /nologo
+LDFLAGS = /nologo
+LINK = link
+
+all: main_dynamic.exe
+
+main_dynamic.exe: main.obj print.dll
+	$(LINK) $(LDFLAGS) main.obj print.lib /out:$@
+
+print.dll: print_upper.obj print_lower.obj
+	$(LINK) $(LDFLAGS) /dll $** /out:$@ /implib:$*.lib
+
+clean:
+	del /F /Q *.obj *.exe *.dll *.exp *.lib

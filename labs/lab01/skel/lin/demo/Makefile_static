@@ -1,9 +1,10 @@
 CC = gcc
+LDFLAGS = -lprint -L.
 
 all: main_static
 
 main_static: main.o libprint.a
-	$(CC) $^ -o $@
+	$(CC) $< -o $@ $(LDFLAGS)
 
 libprint.a: print_upper.o print_lower.o
 	ar -rc $@ $^

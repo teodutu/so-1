@@ -4,7 +4,6 @@
 
 int main(void)
 {
-        // char c;
 	char *a, *b, *c, *d, *e;
 
 	a = malloc(1);
@@ -18,16 +17,6 @@ int main(void)
 	printf("c = %p; header = 0x%lX\n", c, *(long *)(c - 8));
 	printf("d = %p; header = 0x%lX\n", d, *(long *)(d - 8));
 	printf("e = %p; header = 0x%lX\n", e, *(long *)(e - 8));
-
-	// printf("brk before = %p\n", sbrk(0));
-        // scanf("%c", &c);
-
-        // printf("malloc = %p\n", malloc(25 * getpagesize()));
-        // printf("brk after = %p\n", sbrk(0));
-
-        // scanf("%c", &c);
-
-	
 
         return 0;
 }

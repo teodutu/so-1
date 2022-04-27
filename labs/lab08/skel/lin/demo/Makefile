@@ -1,5 +1,5 @@
 LDLIBS = -lpthread
-BINARIES = race_condition
+BINARIES = race_condition tsd
 
 all: $(BINARIES)
 

@@ -3,12 +3,18 @@
 
 pthread_key_t key;
 
+static void foo(void)
+{
+	printf("thread_func: arg = %s\n", (char *)pthread_getspecific(key));
+}
+
 static void *thread_func(void *arg)
 {
 	pthread_key_create(&key, NULL);
 	pthread_setspecific(key, arg);
 
-	printf("thread_func: arg = %s\n", (char *)pthread_getspecific(key));
+	foo();
+
 	return NULL;
 }
 

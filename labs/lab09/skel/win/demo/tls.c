@@ -9,7 +9,7 @@ static VOID Foo(VOID)
 	printf("thread_func: arg = %s\n", lpThreadArg);
 }
 
-DWORD WINAPI ThreadFunc(LPVOID lpParameter)
+static DWORD WINAPI ThreadFunc(LPVOID lpParameter)
 {
 	TlsSetValue(dwTlsIndex, lpParameter);
 	Foo();
